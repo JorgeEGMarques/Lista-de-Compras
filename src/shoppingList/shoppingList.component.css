@@ -1,0 +1,19 @@
+.content {
+    align-items: center;
+    background-color: #F2E5BF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    min-width: 480px;
+    min-height: 50px;
+}
+
+.item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}

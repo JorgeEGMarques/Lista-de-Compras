@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #CB6040;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #257180;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0px 5px;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: aliceblue;
+    color: #257180;
+    outline: 2px solid #257180;
+}

@@ -22,7 +22,7 @@ export class ItemForm {
     itemName: String = '';
 
     showItemForm() {
-        if (this.isEditing) {
+        if (this.isEditing && this.itemName != '') {
             this.getName.emit(this.itemName);
         }
         this.isEditing = !this.isEditing;

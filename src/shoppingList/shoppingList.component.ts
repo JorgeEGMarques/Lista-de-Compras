@@ -8,14 +8,22 @@ type Item =  { id: number, name: String, status: String }
     standalone: true,
     imports: [ItemForm],
     template:`
-        @for (item of items; track $index) {
-            <p>{{ item.name }}</p>
-            <button>Edit</button>
-            <button (click)="changeItemStatus(item)">{{ item.status }}</button>
-            <button (click)="removeItem(item)">Remove</button>
-        }
+    <div class="content">
         <item-form (getName)="addNewItem($event)" />
+        @for (item of items; track $index) {
+            <div class="item">
+                <p>{{ item.name }}</p>
+                <div class="buttons">
+                    <button>Edit</button>
+                    <button (click)="changeItemStatus(item)">{{ item.status }}</button>
+                    <button (click)="removeItem(item)">Remove</button>                    
+                </div>
+            </div>
+        }       
+    </div>
+
     `,
+    styleUrls: ['./shoppingList.component.css']
 })
 export class ShoppingList {
     count = 0;
