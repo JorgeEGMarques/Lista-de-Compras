@@ -1,24 +1,33 @@
 import { Component } from '@angular/core';
 import { ItemForm } from '../itemForm/itemForm.component';
 import { FormsModule } from '@angular/forms';
+import { NgStyle } from '@angular/common';
 
-type Item =  { id: number, name: String, status: String }
+type Item =  { id: number, name: String, status: String, edit: boolean }
 
 @Component({
     selector: 'shopping-list',
     standalone: true,
-    imports: [ItemForm, FormsModule],
+    imports: [ItemForm, FormsModule, NgStyle],
     template:`
     <div class="content">
         <item-form class="new-item" (getName)="addNewItem($event)" />
         @for (item of items; track $index) {
-            <div class="item">
-                <div class="buttons">
-                    @if (!isEditing) {
-                        <p id="item-name">{{ item.name }}</p>
-                        <button (click)="edit(item)">Edit</button>
-                        <button (click)="changeItemStatus(item)">{{ item.status }}</button>
-                        <button (click)="removeItem(item)">Remove</button>
+            <ul class="item-list">
+                <li class="item">
+                    @if (!item.edit) {
+                        <div id="name">
+                            @if (item.status == 'Comprado') {
+                                <s id="item-name">{{ item.name }}</s>
+                            } @else {
+                                <p id="item-name">{{ item.name }}</p>
+                            }
+                        </div>
+                        <div id="buttons">
+                            <button (click)="changeItemStatus(item)">{{ item.status }}</button>
+                            <img id="edit" src="edit.png" alt="Edit" (click)="edit(item)">
+                            <img src="trash.png" alt="Remover" (click)="removeItem(item)">
+                        </div>
                     } @else {
                         <label for="text-box">
                             New Name:
@@ -26,8 +35,8 @@ type Item =  { id: number, name: String, status: String }
                         </label>
                         <button (click)="edit(item)">Confirmar</button>
                     }              
-                </div>
-            </div>
+                </li>
+            </ul>
         }
     </div>
 
@@ -37,11 +46,10 @@ type Item =  { id: number, name: String, status: String }
 export class ShoppingList {
     count = 0;
     items: Item[] = [];
-    isEditing = false;
     itemName = '';
 
     addNewItem(itemName: String) {
-        this.items.push({ id: this.count , name: itemName, status: 'Comprar' });
+        this.items.push({ id: this.count , name: itemName, status: 'Comprar', edit: false });
         this.count++;
     }
 
@@ -56,9 +64,10 @@ export class ShoppingList {
     }
 
     edit(item: Item) {
-        if (this.isEditing && this.itemName != '') {
+        if (item.edit && this.itemName != '') {
             item.name = this.itemName;
         }
-        this.isEditing = !this.isEditing;
+        item.edit = !item.edit;
+        this.itemName = '';
     }
 }
