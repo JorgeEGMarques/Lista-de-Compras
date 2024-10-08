@@ -1,33 +1,44 @@
 import { Component } from '@angular/core';
 import { ItemForm } from '../itemForm/itemForm.component';
+import { FormsModule } from '@angular/forms';
 
 type Item =  { id: number, name: String, status: String }
 
 @Component({
     selector: 'shopping-list',
     standalone: true,
-    imports: [ItemForm],
+    imports: [ItemForm, FormsModule],
     template:`
     <div class="content">
-        <item-form (getName)="addNewItem($event)" />
+        <item-form class="new-item" (getName)="addNewItem($event)" />
         @for (item of items; track $index) {
             <div class="item">
-                <p>{{ item.name }}</p>
                 <div class="buttons">
-                    <button>Edit</button>
-                    <button (click)="changeItemStatus(item)">{{ item.status }}</button>
-                    <button (click)="removeItem(item)">Remove</button>                    
+                    @if (!isEditing) {
+                        <p id="item-name">{{ item.name }}</p>
+                        <button (click)="edit(item)">Edit</button>
+                        <button (click)="changeItemStatus(item)">{{ item.status }}</button>
+                        <button (click)="removeItem(item)">Remove</button>
+                    } @else {
+                        <label for="text-box">
+                            New Name:
+                            <input type="text" id="text-box" [(ngModel)]="itemName" />
+                        </label>
+                        <button (click)="edit(item)">Confirmar</button>
+                    }              
                 </div>
             </div>
-        }       
+        }
     </div>
 
     `,
-    styleUrls: ['./shoppingList.component.css']
+    styleUrls: ['./shoppingList.component.css', '../itemForm/itemForm.component.css']
 })
 export class ShoppingList {
     count = 0;
     items: Item[] = [];
+    isEditing = false;
+    itemName = '';
 
     addNewItem(itemName: String) {
         this.items.push({ id: this.count , name: itemName, status: 'Comprar' });
@@ -44,7 +55,10 @@ export class ShoppingList {
         this.items.splice(index, 1);
     }
 
-    edit(item: Item, name: String) {
-        item.name = name;
+    edit(item: Item) {
+        if (this.isEditing && this.itemName != '') {
+            item.name = this.itemName;
+        }
+        this.isEditing = !this.isEditing;
     }
 }

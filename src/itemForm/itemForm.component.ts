@@ -7,15 +7,16 @@ import { FormsModule } from '@angular/forms';
     imports: [FormsModule],
     template:`
         @if (!isEditing) {
-            <button (click)="showItemForm()">New item</button>
+            <button class="button" (click)="showItemForm()">New item</button>
         } @else {
-            <label for="framework">
+            <label for="text-box">
                 Nome do item:
-                <input id="framework" type="text" [(ngModel)]="itemName" />
+                <input id="text-box" type="text" [(ngModel)]="itemName" />
             </label>
-            <button (click)="showItemForm()">Add</button>
+            <button id="add-button" (click)="showItemForm()">Add</button>
         }
-  `,
+    `,
+    styleUrls: ['./itemForm.component.css']
 })
 export class ItemForm {
     isEditing = false;

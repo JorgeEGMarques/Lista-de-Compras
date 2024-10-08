@@ -1,0 +1,14 @@
+#add-button {
+    padding: 5px 12px;
+}
+
+#text-box {
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.button {
+    margin: 10px;
+}
