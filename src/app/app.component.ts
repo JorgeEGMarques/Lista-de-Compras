@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { ShoppingList } from '../shoppingList/shoppingList.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, FormsModule, ShoppingList],
+    imports: [RouterOutlet, ShoppingList],
     template:`
         <main class="main">
             <div class="content">

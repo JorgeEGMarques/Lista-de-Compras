@@ -8,6 +8,10 @@
     width: 500px;
 }
 
+.content h3 {
+    margin-top: 10px;
+}
+
 .new-item {
     margin: auto;
 }
@@ -37,6 +41,16 @@
 
 #edit {
     height: 48px;
+}
+
+#comprado {
+    background-color: #008000;
+}
+
+#comprado:active {
+    background-color: white;
+    color: #008000;
+    outline: 2px solid #008000;
 }
 
 img {

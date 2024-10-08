@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
     template:`
         <label for="text-box">
             Nome do item:
-            <input id="text-box" type="text" [(ngModel)]="itemName" />
+            <input (keydown.enter)="ItemForm()" id="text-box" type="text" [(ngModel)]="itemName" />
         </label>
         <button id="add-button" (click)="ItemForm()">Add</button>
     `,
