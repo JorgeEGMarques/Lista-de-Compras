@@ -5,13 +5,7 @@ import { FormsModule } from '@angular/forms';
     selector: 'item-form',
     standalone: true,
     imports: [FormsModule],
-    template:`
-        <label for="text-box">
-            Nome do item:
-            <input (keydown.enter)="ItemForm()" id="text-box" type="text" [(ngModel)]="itemName" />
-        </label>
-        <button id="add-button" (click)="ItemForm()">Add</button>
-    `,
+    templateUrl: 'itemForm.component.html',
     styleUrls: ['./itemForm.component.css']
 })
 export class ItemForm {

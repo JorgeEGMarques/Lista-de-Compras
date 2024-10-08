@@ -8,57 +8,7 @@ type Item =  { id: number, name: String, status: String, edit: boolean }
     selector: 'shopping-list',
     standalone: true,
     imports: [ItemForm, FormsModule],
-    template:`
-    <div class="content">
-        <item-form class="new-item" (getName)="addNewItem($event)" />
-        @for (item of itens; track $index) {
-            <ul class="item-list">
-                <li class="item">
-                    @if (!item.edit) {
-                        <div id="name">
-                            <p id="item-name">{{ item.name }}</p>
-                        </div>
-                        <div id="buttons">
-                            <button (click)="changeItemStatus(item)">{{ item.status }}</button>
-                            <img id="edit" src="edit.png" alt="Edit" (click)="edit(item)">
-                            <img src="trash.png" alt="Remover" (click)="removeItem(item)">
-                        </div>
-                    } @else {
-                        <label for="text-box">
-                            New Name:
-                            <input type="text" id="text-box" [(ngModel)]="itemName" />
-                        </label>
-                        <button (click)="edit(item)">Confirmar</button>
-                    }              
-                </li>
-            </ul>
-        }
-        <h3>Comprados:</h3>
-        @for (item of itensComprados; track $index) {
-            <ul class="item-list">
-                <li class="item">
-                    @if (!item.edit) {
-                        <div id="name">
-                            <s id="item-name">{{ item.name }}</s>
-                        </div>
-                        <div id="buttons">
-                            <button id="comprado" (click)="changeItemStatus(item)">{{ item.status }}</button>
-                            <img id="edit" src="edit.png" alt="Edit" (click)="edit(item)">
-                            <img src="trash.png" alt="Remover" (click)="removeItem(item)">
-                        </div>
-                    } @else {
-                        <label for="text-box">
-                            New Name:
-                            <input type="text" id="text-box" [(ngModel)]="itemName" />
-                        </label>
-                        <button (click)="edit(item)">Confirmar</button>
-                    }              
-                </li>
-            </ul>
-        }
-    </div>
-
-    `,
+    templateUrl: './shoppingList.component.html',
     styleUrls: ['./shoppingList.component.css', '../itemForm/itemForm.component.css']
 })
 export class ShoppingList {

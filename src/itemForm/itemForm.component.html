@@ -1,0 +1,5 @@
+<label for="text-box">
+    Nome do item:
+    <input (keydown.enter)="ItemForm()" id="text-box" type="text" [(ngModel)]="itemName" />
+</label>
+<button id="add-button" (click)="ItemForm()">Add</button>
