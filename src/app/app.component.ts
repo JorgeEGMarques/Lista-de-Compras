@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ShoppingList } from '../shoppingList/shoppingList.component';
 import { AuthService } from '@auth0/auth0-angular';

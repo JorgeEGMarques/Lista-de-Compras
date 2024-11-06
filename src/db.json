@@ -1,16 +1,4 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Alice",
-      "email": "alice@exemplo.com"
-    },
-    {
-      "id": "2",
-      "name": "Bob",
-      "email": "bob@exemplo.com"
-    }
-  ],
   "shopping-list": [
     {
       "id": "0",
@@ -20,14 +8,14 @@
     },
     {
       "id": "1",
-      "name": "Abacate",
+      "name": "Uva",
       "status": "Comprar",
       "edit": false
     },
     {
       "id": "2",
-      "name": "Uva",
-      "status": "Comprado",
+      "name": "Abacaxi",
+      "status": "Comprar",
       "edit": false
     }
   ]
