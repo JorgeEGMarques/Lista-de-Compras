@@ -1,0 +1,12 @@
+.app-btn {
+    align-items: center;
+    top: 10px;
+    display: flex;
+    right: 10px;
+    height: 30px;
+    position: absolute;
+}
+
+.logout {
+    background-color: red;
+}

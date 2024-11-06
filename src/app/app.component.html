@@ -1,0 +1,8 @@
+<shopping-list />
+<router-outlet />
+@if (auth.isAuthenticated$ | async) {
+    <button class="app-btn logout" (click)="auth.logout()">Logout</button>
+} @else {
+    <button class="app-btn" (click)="auth.loginWithRedirect()">Login</button>
+}
+

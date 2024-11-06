@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemForm } from '../itemForm/itemForm.component';
 import { FormsModule } from '@angular/forms';
-
-type Item =  { id: number, name: String, status: String, edit: boolean }
+import { ShoppingListService, Item } from './shoppingList.service';
 
 @Component({
     selector: 'shopping-list',
@@ -11,14 +10,67 @@ type Item =  { id: number, name: String, status: String, edit: boolean }
     templateUrl: './shoppingList.component.html',
     styleUrls: ['./shoppingList.component.css', '../itemForm/itemForm.component.css']
 })
-export class ShoppingList {
+export class ShoppingList implements OnInit{
+    items!: Item[];
+
+    constructor(private shoppingListService: ShoppingListService) {}
+
+    ngOnInit(): void {
+        this.shoppingListService.getItems().subscribe((data) => {
+            this.items = data;
+        });
+    }
+
+    addItem(itemName: String) {
+        if (this.items.length == 0) {
+            this.shoppingListService.addItem({
+                id: "0", name: itemName, status: 'Comprar', edit: false
+            }).subscribe({
+                next: (item) => { this.items.push(item); },
+            });
+        } else {
+            this.shoppingListService.addItem({
+                id: (+this.items[this.items.length - 1].id + 1).toString(), name: itemName, status: 'Comprar', edit: false
+            }).subscribe({
+                next: (item) => { this.items.push(item); },
+            });
+        }
+    }
+
+    updateItemName(item: Item) {
+        if (this.itemName != '') {
+            item.name = this.itemName;
+        }
+        this.itemName = '';
+        item.edit = !item.edit;
+
+        this.shoppingListService.updateItem(item).subscribe({
+            next: (item) => {}
+        });
+    }
+
+    updateStatus(item: Item) {
+        if (item.status == 'Comprar') { item.status = 'Comprado' }
+        else { item.status = 'Comprar' };
+
+        this.shoppingListService.updateItem(item).subscribe({
+            next: (item) => {}
+        });
+    }
+
+    deleteItem(item: Item) {
+        this.items = this.items.filter((i) => i.id !== item.id);
+        this.shoppingListService.deleteItem(+item.id).subscribe();
+    }
+
+
     count = 0;
     itens: Item[] = [];
     itensComprados: Item[] = [];
     itemName = '';
 
     addNewItem(itemName: String) {
-        this.itens.push({ id: this.count , name: itemName, status: 'Comprar', edit: false });
+        this.itens.push({ id: (this.count).toString() , name: itemName, status: 'Comprar', edit: false });
         this.count++;
     }
 
@@ -44,13 +96,5 @@ export class ShoppingList {
             const index = this.itens.indexOf(item);
             this.itens.splice(index, 1);
         }
-    }
-
-    edit(item: Item) {
-        if (item.edit && this.itemName != '') {
-            item.name = this.itemName;
-        }
-        item.edit = !item.edit;
-        this.itemName = '';
     }
 }
