@@ -13,26 +13,20 @@
   ],
   "shopping-list": [
     {
+      "id": "0",
+      "name": "Batata",
+      "status": "Comprar",
+      "edit": false
+    },
+    {
       "id": "1",
-      "name": "bababababa",
-      "status": "Comprado",
+      "name": "Abacate",
+      "status": "Comprar",
       "edit": false
     },
     {
       "id": "2",
-      "name": "caca",
-      "status": "Comprado",
-      "edit": false
-    },
-    {
-      "id": "3",
-      "name": "bbb",
-      "status": "Comprado",
-      "edit": false
-    },
-    {
-      "id": "4",
-      "name": "aaaa",
+      "name": "Uva",
       "status": "Comprado",
       "edit": false
     }

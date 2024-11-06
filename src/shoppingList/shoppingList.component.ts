@@ -12,6 +12,7 @@ import { ShoppingListService, Item } from './shoppingList.service';
 })
 export class ShoppingList implements OnInit{
     items!: Item[];
+    itemName = '';
 
     constructor(private shoppingListService: ShoppingListService) {}
 
@@ -61,40 +62,5 @@ export class ShoppingList implements OnInit{
     deleteItem(item: Item) {
         this.items = this.items.filter((i) => i.id !== item.id);
         this.shoppingListService.deleteItem(+item.id).subscribe();
-    }
-
-
-    count = 0;
-    itens: Item[] = [];
-    itensComprados: Item[] = [];
-    itemName = '';
-
-    addNewItem(itemName: String) {
-        this.itens.push({ id: (this.count).toString() , name: itemName, status: 'Comprar', edit: false });
-        this.count++;
-    }
-
-    changeItemStatus(item: Item) {
-        item.status == 'Comprar' ?
-            item.status = 'Comprado' : item.status = 'Comprar';
-        if (item.status == 'Comprado') {
-            this.itensComprados.push(item);
-            const index = this.itens.indexOf(item);
-            this.itens.splice(index, 1);
-        } else {
-            this.itens.push(item);
-            const index = this.itensComprados.indexOf(item);
-            this.itensComprados.splice(index, 1);
-        }
-    }
-
-    removeItem(item: Item) {
-        if (item.status == 'Comprado') {
-            const index = this.itensComprados.indexOf(item);
-            this.itensComprados.splice(index, 1);
-        } else {
-            const index = this.itens.indexOf(item);
-            this.itens.splice(index, 1);
-        }
     }
 }

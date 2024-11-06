@@ -37,7 +37,7 @@
                         <div id="buttons">
                             <button id="comprado" (click)="updateStatus(item)">{{ item.status }}</button>
                             <img id="edit" src="edit.png" alt="Edit" (click)="updateItemName(item)">
-                            <img src="trash.png" alt="deleter" (click)="removeItem(item)">
+                            <img src="trash.png" alt="deleter" (click)="deleteItem(item)">
                         </div>
                     } @else {
                         <label for="text-box">
