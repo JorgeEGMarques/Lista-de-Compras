@@ -1,0 +1,34 @@
+{
+  "shopping-list": [
+    {
+      "id": "0",
+      "name": "Abacaxi",
+      "status": "Comprar",
+      "edit": false
+    },
+    {
+      "id": "1",
+      "name": "Batata",
+      "status": "Comprar",
+      "edit": false
+    },
+    {
+      "id": "2",
+      "name": "Uva",
+      "status": "Comprar",
+      "edit": false
+    },
+    {
+      "id": "3",
+      "name": "Maçã",
+      "status": "Comprado",
+      "edit": false
+    },
+    {
+      "id": "4",
+      "name": "Salada mista",
+      "status": "Comprar",
+      "edit": false
+    }
+  ]
+}
