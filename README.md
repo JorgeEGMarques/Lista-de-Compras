@@ -8,4 +8,4 @@ Run `npx ng serve` for a dev server. Navigate to `http://localhost:4200/`. The a
 
 ## Json-Server
 
-Run `npx json-server db.json` for the shopping list to actually works.
+Run `npx json-server db.json` for the shopping list to actually work.
