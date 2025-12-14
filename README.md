@@ -2,13 +2,7 @@
 
 > O projeto Lista-De-Compras é uma breve apresentação dos meus estudos de Angular.
 
-<details>
-<summary>Fotos</summary>
-<br>
-
-<img src="application-print.png" title="Home Page" width="100%">
-
-</details>
+<img src="/public/application-print.png" title="Home Page" width="100%">
 
 ### Built With
 
