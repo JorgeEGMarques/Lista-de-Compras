@@ -9,13 +9,13 @@
     {
       "id": "1",
       "name": "Batata",
-      "status": "Comprar",
+      "status": "Comprado",
       "edit": false
     },
     {
       "id": "2",
       "name": "Uva",
-      "status": "Comprar",
+      "status": "Comprado",
       "edit": false
     },
     {
@@ -27,6 +27,18 @@
     {
       "id": "4",
       "name": "Salada mista",
+      "status": "Comprado",
+      "edit": false
+    },
+    {
+      "id": "5",
+      "name": "Cebola",
+      "status": "Comprar",
+      "edit": false
+    },
+    {
+      "id": "6",
+      "name": "Pera",
       "status": "Comprar",
       "edit": false
     }
