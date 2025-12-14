@@ -6,11 +6,7 @@
 <summary>Fotos</summary>
 <br>
 
-> Please provide your screenshots here.
-
-|                               Home Page                               |                               Login Page                               |
-| :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="application-print.png" title="Home Page" width="100%"> | <img src="docs/images/screenshot.png" title="Login Page" width="100%"> |
+<img src="application-print.png" title="Home Page" width="100%">
 
 </details>
 
